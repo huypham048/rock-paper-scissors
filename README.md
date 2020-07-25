@@ -1,0 +1,1 @@
+This program will run a simple 5 rounds of rock-paper-scissors game. The player will play against the computer, and the game will announce the result after 5 rounds.
