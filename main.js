@@ -67,34 +67,3 @@ const choices = Array.from(document.querySelectorAll('.player-choice'));
 choices.forEach(choice => {
     choice.addEventListener('click', playRound);
 });
-
-
-
-
-/*function game() {
-     let scores = [0, 0];
-    let result = "";
-    let finalResult = "";
-
-    let computerSelection = computerPlay().toLowerCase();
-    let playerSelection = playerPlay().toLowerCase();
-    result = playRound(playerSelection, computerSelection);
-    console.log(`\nComputer choice is ${computerSelection}`);
-
-    if (result.includes("You win!")) {
-        scores[0]++;
-    } else if (result.includes("You lose!")) {
-        scores[1]++;
-    }
-    console.log(result);
-    console.log(`Player score: ${scores[0]}, Computer score: ${scores[1]}`);
-
-    if (scores[0] == scores[1]) {
-        finalResult = "It's a tie!";
-    } else {
-        finalResult = scores[0] > scores[1] ? "Player wins" : "Computer wins";
-    }
-    return finalResult;
-}
- */
-
