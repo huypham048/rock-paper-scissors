@@ -1,89 +1,22 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Rock Paper Scissors</title>
-        <meta charset="UTF-8"/>
-    </head>
 
-    <body>
-        <script>
-            'use strict'
-            const VALID_PLAYS = ["rock", "paper", "scissors"];
-    
-            function computerPlay() {
-                return VALID_PLAYS[Math.floor(Math.random() * VALID_PLAYS.length)];
-            }
+<head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8" />
+</head>
 
-            function playerPlay() {
-                let selection = "";
-                do {
-                    selection = prompt("Input a valid play: ");
-                } while (!VALID_PLAYS.includes(selection.toLowerCase()));
+<body>
+    <div class='selections'>
+        <button id='rock-btn' value='rock' class='player-choice box'>Rock</button>
+        <button id='paper-btn' value='paper' class='player-choice box'>Paper</button>
+        <button id='scissors-btn' value='scissors' class='player-choice box'>Scissors</button>
+    </div>
 
-                return selection;
-            }
+    <div class="result">
+    </div>
 
-            function playRound(playerSelection, computerSelection) {
-                //Checking for a tie
-                if(playerSelection === computerSelection) {
-                    return "You both choose " +  computerSelection + ". It's a tie";
-                } 
+    <script src='main.js'></script>
+</body>
 
-                //Checking for rock
-                if (playerSelection === "rock") {
-                    if (computerSelection === "scissors") {
-                        return "You win! Rock beats scissors";
-                    } else {
-                        return "You lose! Paper beats rock";
-                    }
-                }
-
-                //Checking for paper
-                if (playerSelection === "paper") {
-                    if (computerSelection === "rock") {
-                        return "You win! Paper beats rock";
-                    } else {
-                        return "You lose! Scissors beats paper";
-                    }
-                }
-
-                //Checking for scissors
-                if (playerSelection === "scissors") {
-                    if (computerSelection === "paper") {
-                        return "You win! Scissors beats paper";
-                    } else {
-                        return "You lose! Rock beats scissors";
-                    }
-                }
-            }
-            
-            function game() {
-                let scores = [0, 0];
-                let result = "";
-                let finalResult = "";
-                for (let i = 0; i < 5; ++i) {
-                    let computerSelection = computerPlay().toLowerCase();
-                    let playerSelection = playerPlay().toLowerCase();
-                    result = playRound(playerSelection, computerSelection);
-                    console.log(`\nComputer choice is ${computerSelection}`);
-                    
-                    if (result.includes("You win!")) {
-                        scores[0]++;
-                    } else if (result.includes("You lose!")) {
-                        scores[1]++;
-                    }
-                    console.log(result);
-                    console.log(`Player score: ${scores[0]}, Computer score: ${scores[1]}`);
-                }
-                    if (scores[0] == scores[1]) {
-                         finalResult = "It's a tie!";
-                    } else {
-                        finalResult = scores[0] > scores[1] ? "Player wins" : "Computer wins";
-                    }
-                    return finalResult;
-            }
-            console.log(game());
-            
-        </script>
-    </body>
 </html>
